@@ -18,6 +18,10 @@ public class MainMenuManager : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject infoMenu;
 
+    [Header("Links")]
+    public string discordLink;
+    public string website;
+
     #endregion
      
     // Start is called before the first frame update
@@ -37,7 +41,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Multiplayer()
     {
-        // load scene here
+        SceneManager.LoadScene("Multiplayer");
     }
 
     public void Singleplayer()
@@ -63,6 +67,16 @@ public class MainMenuManager : MonoBehaviour
     public void Back()
     {
         mainMenu.SetActive(true); optionsMenu.SetActive(false); infoMenu.SetActive(false);
+    }
+
+    public void Discord()
+    {
+        Application.OpenURL(discordLink);
+    }
+
+    public void Web()
+    {
+        Application.OpenURL(website);
     }
 
     #endregion
