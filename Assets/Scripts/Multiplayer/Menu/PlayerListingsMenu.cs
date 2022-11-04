@@ -10,34 +10,58 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     private Transform _content;
 
     [SerializeField]
-    private RoomListing _roomListing;
+    private PlayerListing _playerListing;
 
-    private List<RoomListing> _listings = new List<RoomListing>();
+    private List<PlayerListing> _listings = new List<PlayerListing>();
+    private RoomCanvases _roomCanvases;
 
-    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    private void Awake()
     {
-        foreach (RoomInfo info in roomList)
+        GetCurrentRoomPlayers();
+    }
+
+    public void FirstInitialize(RoomCanvases canvases)
+    {
+        _roomCanvases = canvases;
+    }
+
+    public override void OnLeftRoom()
+    {
+        _content.DestroyChildren();
+    }
+
+    private void GetCurrentRoomPlayers()
+    {
+        foreach (KeyValuePair<int, Player> playerinfo in PhotonNetwork.CurrentRoom.Players)
         {
-            if (info.RemovedFromList)
-            {
-                // remove from list
-                int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name);
-                if (index != -1)
-                {
-                    Destroy(_listings[index].gameObject);
-                    _listings.RemoveAt(index);
-                }
-            }
-            else
-            {
-                // add to list
-                RoomListing listing = Instantiate(_roomListing, _content);
-                if (listing != null)
-                {
-                    listing.SetRoomInfo(info);
-                    _listings.Add(listing);
-                }
-            }
+            AddPlayerListing(playerinfo.Value);
+        }
+    }
+
+    private void AddPlayerListing(Player player)
+    {
+        // add to list
+        PlayerListing listing = Instantiate(_playerListing, _content);
+        if (listing != null)
+        {
+            listing.SetPlayerInfo(player);
+            _listings.Add(listing);
+        }
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        AddPlayerListing(newPlayer);
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        // remove from list
+        int index = _listings.FindIndex(x => x.Player == otherPlayer);
+        if (index != -1)
+        {
+            Destroy(_listings[index].gameObject);
+            _listings.RemoveAt(index);
         }
     }
 }

@@ -9,11 +9,11 @@ public class PlayerListing : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _text;
 
-    private Player _player;
+    public Player Player { get; private set; }
 
     public void SetPlayerInfo(Player player)
     {
-        _player = player;
+        Player = player;
         _text.text = player.NickName;
     }
 }

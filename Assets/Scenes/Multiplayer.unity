@@ -208,8 +208,9 @@ GameObject:
   - component: {fileID: 138129005}
   - component: {fileID: 138129004}
   - component: {fileID: 138129003}
+  - component: {fileID: 138129006}
   m_Layer: 0
-  m_Name: LeaveButton
+  m_Name: LeaveRoomMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,9 +281,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CreateRoomMenu, Assembly-CSharp
-        m_MethodName: OnClick_CreateRoom
+      - m_Target: {fileID: 138129006}
+        m_TargetAssemblyTypeName: LeaveRoomMenu, Assembly-CSharp
+        m_MethodName: OnClick_LeaveRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -327,6 +328,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138129001}
   m_CullTransparentMesh: 1
+--- !u!114 &138129006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138129001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228f4021e6aeead4897160a0cd49a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &210746313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,9 +1079,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -57, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &542416007
 MonoBehaviour:
@@ -1171,6 +1184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a82081366b70846899303ff01af9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _content: {fileID: 1860729591}
+  _playerListing: {fileID: 3527716451023808173, guid: 40a62dcfd69983144b54ff621179e4df, type: 3}
 --- !u!1 &587240393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1907,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2052,6 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _createRoomMenu: {fileID: 339451680}
+  _roomListingsMenu: {fileID: 1939355352}
 --- !u!1 &960490069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,7 +2466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1515526392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2548,6 +2564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26d1ff650614f746aa2ece211f1c751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerListingsMenu: {fileID: 555567832}
+  _leaveRoomMenu: {fileID: 138129006}
 --- !u!1 &1618285201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,7 +3600,7 @@ GameObject:
   - component: {fileID: 1939355351}
   - component: {fileID: 1939355352}
   m_Layer: 0
-  m_Name: RoomListings
+  m_Name: RoomListingsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
