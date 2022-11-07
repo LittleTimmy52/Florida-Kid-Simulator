@@ -43,5 +43,4 @@ public class Connect : MonoBehaviourPunCallbacks
     {
         print("Joined lobby");
     }
-    }
 }
