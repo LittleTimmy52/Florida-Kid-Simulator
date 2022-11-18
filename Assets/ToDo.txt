@@ -6,13 +6,16 @@ https://www.youtube.com/watch?v=Nw7BFHGBjaY&list=PLkx8oFug638oMagBH2qj1fXOkvBr6n
 Now
 --------------------
 
-multiplayer menu
-singleplayer menu
+(multiplayer)
+player controller 
+basic gameplay
+add multiplayer part
 
 --------------------
 Later
 --------------------
 
+singleplayer menu
 Re do credits and really whole info page
 options
 add music
