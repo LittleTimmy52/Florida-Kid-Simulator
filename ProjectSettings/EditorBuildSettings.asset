@@ -14,4 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestGame.unity
     guid: 297e02e5bbda1064b85062c43127e3a5
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerGame.unity
+    guid: c6f98ded4c5a21248b8c4e21bb96d7a3
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: fdfd827a048007c41939ebbc45550b89, type: 2}
