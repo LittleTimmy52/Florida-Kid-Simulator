@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    #region PRIVATE 
-
-
-
-    #endregion
-
     #region PUBLIC
 
     [Header("Menues")]
@@ -29,12 +23,9 @@ public class MainMenuManager : MonoBehaviour
     {
         // open correct menu
         mainMenu.SetActive(true); optionsMenu.SetActive(false);  infoMenu.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // open in fullscreen
+        Screen.fullScreen = true;
     }
 
     #region BUTTONS

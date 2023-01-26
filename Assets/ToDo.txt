@@ -6,7 +6,13 @@ https://www.youtube.com/watch?v=Nw7BFHGBjaY&list=PLkx8oFug638oMagBH2qj1fXOkvBr6n
 Now
 --------------------
 
+
+https://www.youtube.com/watch?v=3fzX-BX8hlI
+2:32
+
+
 (multiplayer)
+F11 change screen size. use a new script that is static to use falue on all scenes
 pause menu
 stop looking on pause menu
 basic gameplay
