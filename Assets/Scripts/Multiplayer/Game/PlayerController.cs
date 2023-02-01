@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         if (view.IsMine)
         {
             Cursor.visible = false;
+            cam.gameObject.SetActive(true);
         }
     }
 
