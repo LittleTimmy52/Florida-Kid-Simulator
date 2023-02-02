@@ -17,14 +17,13 @@ public class PlayerController : MonoBehaviour
 
     #region PUBLIC
 
-    public float speed = 500f;
-
-    public float jumpForce = 200f;
+    public float speed = 100f;
+    public float jumpForce = 500f;
 
     [Header("Camera")]
     public Camera cam;
-    public float xSensitivity = 300f;
-    public float ySensitivity = 300f;
+    public float xSensitivity = 100f;
+    public float ySensitivity = 100f;
 
     #endregion
 
@@ -69,9 +68,15 @@ public class PlayerController : MonoBehaviour
 
         if (horizontal != 0 || vertical != 0)
         {
+            //rb.AddForce(new Vector3((Input.GetAxis("Horizontal") * speed) - rb.velocity.x * 18, 0, 0));
+            //rb.AddForce(new Vector3(0f, 0f, (Input.GetAxis("Vertical") * speed) - rb.velocity.z * 18));
+
             Vector3 move = new Vector3(horizontal, 0, vertical) * speed * Time.fixedDeltaTime;
-            rb.AddRelativeForce(move);
-        }else
+            rb.AddRelativeForce(move, ForceMode.VelocityChange);
+            print(rb.velocity);
+
+        }
+        else
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
