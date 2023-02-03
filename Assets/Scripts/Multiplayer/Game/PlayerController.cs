@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     #region PUBLIC
 
-    public float speed = 100f;
+    public float speed = 300f;
     public float jumpForce = 500f;
 
     [Header("Camera")]
@@ -68,12 +68,11 @@ public class PlayerController : MonoBehaviour
 
         if (horizontal != 0 || vertical != 0)
         {
-            //rb.AddForce(new Vector3((Input.GetAxis("Horizontal") * speed) - rb.velocity.x * 18, 0, 0));
-            //rb.AddForce(new Vector3(0f, 0f, (Input.GetAxis("Vertical") * speed) - rb.velocity.z * 18));
-
             Vector3 move = new Vector3(horizontal, 0, vertical) * speed * Time.fixedDeltaTime;
-            rb.AddRelativeForce(move, ForceMode.VelocityChange);
+            move.y = rb.velocity.y;
+            rb.velocity = transform.TransformDirection(move);
             print(rb.velocity);
+            print(isGrounded);
 
         }
         else
@@ -105,6 +104,8 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
             {
                 rb.AddForce(Vector3.up * jumpForce);
+
+                isGrounded = false;
             }
         }
     }
@@ -133,6 +134,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
         }
     }
 }
