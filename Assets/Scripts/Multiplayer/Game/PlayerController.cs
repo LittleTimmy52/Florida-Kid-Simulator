@@ -17,8 +17,11 @@ public class PlayerController : MonoBehaviour
 
     #region PUBLIC
 
+    [Header("Make Private")]
     public float speed = 300f;
     public float jumpForce = 500f;
+    public float boundX = 50f;
+    public float boundZ = 50f;
 
     [Header("Camera")]
     public Camera cam;
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             Look();
             Pause();
+            Bounds();
         }
     }
 
@@ -57,6 +61,16 @@ public class PlayerController : MonoBehaviour
             Move();
             Jump();
         }
+    }
+
+    private void Bounds()
+    {
+        Vector3 tmp = transform.position;
+        if (tmp.x > boundX) { tmp.x = boundX; }
+        if (tmp.x < -boundX) { tmp.x = -boundX; }
+        if (tmp.z > boundX) { tmp.z = boundZ; }
+        if (tmp.z < -boundX) { tmp.z = -boundZ; }
+        transform.position = tmp;
     }
 
     #region INPUT HANDLERS
@@ -71,9 +85,6 @@ public class PlayerController : MonoBehaviour
             Vector3 move = new Vector3(horizontal, 0, vertical) * speed * Time.fixedDeltaTime;
             move.y = rb.velocity.y;
             rb.velocity = transform.TransformDirection(move);
-            print(rb.velocity);
-            print(isGrounded);
-
         }
         else
         {
@@ -99,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump"))
         {
             if (isGrounded)
             {
@@ -134,13 +145,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
-        }
-    }
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = false;
         }
     }
 }

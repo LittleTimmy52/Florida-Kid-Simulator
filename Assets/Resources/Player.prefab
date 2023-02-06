@@ -170,8 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5a19572b0e0524b97e676d93448a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 300
   jumpForce: 500
+  boundX: 50
+  boundZ: 50
   cam: {fileID: 4599850879445285492}
   xSensitivity: 100
   ySensitivity: 100

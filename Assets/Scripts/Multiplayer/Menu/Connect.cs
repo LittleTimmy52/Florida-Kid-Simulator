@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class Connect : MonoBehaviourPunCallbacks
 {
@@ -38,6 +39,7 @@ public class Connect : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         print("Disconected from server, cause: " + cause.ToString());
+        SceneManager.LoadScene("MainMenu");
     }
     public override void OnJoinedLobby()
     {

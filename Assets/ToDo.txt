@@ -12,10 +12,9 @@ https://www.youtube.com/watch?v=3fzX-BX8hlI
 
 
 (multiplayer)
-make controlls more snappy
-bounds
+camera perspectives and have f1 cycle them
 F11 change screen size. use a new script that is static to use falue on all scenes
-pause menu
+pause menu & pausing in general
 stop looking on pause menu
 basic gameplay
 add multiplayer part

@@ -16,8 +16,8 @@ public class PlayerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PositionRaycast();
         transform.position = new Vector3(Random.Range(-rangeX, rangeX), 20f, Random.Range(-rangeZ, rangeZ));
+        PositionRaycast();
     }
 
     void PositionRaycast()

@@ -50,7 +50,7 @@ MonoBehaviour:
   overlapTestBoxSize: 1
   dontSpawn:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!114 &-63290701677617031
 MonoBehaviour:
   m_ObjectHideFlags: 0
