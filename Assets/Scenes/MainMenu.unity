@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60.000748}
+  m_AnchoredPosition: {x: 0, y: -59.999985}
   m_SizeDelta: {x: 232, y: 420}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77336508
@@ -210,14 +210,9 @@ MonoBehaviour:
     <size=10>
 
     <size=20>
-    F1 - First person
+    F5 - Cycle camera
 
-    F2 - Second person
-
-    F3 - Third person
-
-    Shift -
-    Speak
+    Shift - Speak
 
     Tab - Toggle scoreboard'
   m_isRightToLeft: 0
@@ -3178,7 +3173,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1793225168}
   m_HandleRect: {fileID: 1793225167}
   m_Direction: 2
-  m_Value: -0.00000006103516
+  m_Value: 0
   m_Size: 0.375
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3331,7 +3326,7 @@ RectTransform:
   m_Father: {fileID: 1505285456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.2857142}
+  m_AnchorMin: {x: 0, y: 0.28571427}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3733,8 +3728,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1490123816}
   m_HandleRect: {fileID: 1490123815}
   m_Direction: 2
-  m_Value: 1.0000063
-  m_Size: 0.7142858
+  m_Value: 0.99999976
+  m_Size: 0.71428573
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

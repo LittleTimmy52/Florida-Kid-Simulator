@@ -9,24 +9,20 @@ public class PlayerController : MonoBehaviour
 
     private PhotonView view;
     private Rigidbody rb;
-    private float xRot = 0f;
     private bool isGrounded;
     private bool isPaused = false;
+    private float speed = 300f;
+    private float jumpForce = 500f;
+    private float boundX = 50f;
+    private float boundZ = 50f;
 
     #endregion
 
     #region PUBLIC
 
-    [Header("Make Private")]
-    public float speed = 300f;
-    public float jumpForce = 500f;
-    public float boundX = 50f;
-    public float boundZ = 50f;
 
-    [Header("Camera")]
-    public Camera cam;
-    public float xSensitivity = 100f;
-    public float ySensitivity = 100f;
+    public GameObject[] cameras;
+    public int cameraIndex = 0;
 
     #endregion
 
@@ -39,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (view.IsMine)
         {
             Cursor.visible = false;
-            cam.gameObject.SetActive(true);
+            cameras[cameraIndex].gameObject.SetActive(true);
         }
     }
 
@@ -48,9 +44,13 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine)
         {
-            Look();
+            if (!isPaused)
+            {
+                Bounds();
+                CycleCam();
+            }
+
             Pause();
-            Bounds();
         }
     }
 
@@ -58,8 +58,11 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine)
         {
-            Move();
-            Jump();
+            if (!isPaused)
+            {
+                Move();
+                Jump();
+            }
         }
     }
 
@@ -75,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     #region INPUT HANDLERS
 
-    public void Move()
+    private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -92,23 +95,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Look()
-    {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-
-        // calc cam rot for up/down
-        xRot -= (mouseY * Time.deltaTime) * ySensitivity;
-        xRot = Mathf.Clamp(xRot, -80f, 80f);
-
-        // apply to cam
-        cam.transform.localRotation = Quaternion.Euler(xRot, 0, 0);
-
-        // rot player for left/right
-        transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
-    }
-
-    public void Jump()
+    private void Jump()
     {
         if (Input.GetButton("Jump"))
         {
@@ -121,7 +108,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Pause()
+    private void Pause()
     {
         if (Input.GetButtonDown("Pause"))
         {
@@ -129,11 +116,29 @@ public class PlayerController : MonoBehaviour
 
             if (!isPaused)
             {
-                Cursor.visible = true;
+                Cursor.visible = false;
+
+                cameras[cameraIndex].GetComponent<CameraController>().enabled = true;
             }
             else
             {
-                Cursor.visible = false;
+                Cursor.visible = true;
+
+                cameras[cameraIndex].GetComponent<CameraController>().enabled = false;
+            }
+        }
+    }
+
+    private void CycleCam()
+    {
+        if (view.IsMine)
+        {
+            if (Input.GetButtonDown("F5"))
+            {
+                cameras[cameraIndex].SetActive(false);
+                cameraIndex++;
+                cameraIndex %= 3;
+                cameras[cameraIndex].SetActive(true);
             }
         }
     }

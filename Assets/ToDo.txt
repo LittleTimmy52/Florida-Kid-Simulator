@@ -12,7 +12,11 @@ https://www.youtube.com/watch?v=3fzX-BX8hlI
 
 
 (multiplayer)
-camera perspectives and have f1 cycle them
+
+fp turn off gfx 
+
+pauseing and whatnot
+
 F11 change screen size. use a new script that is static to use falue on all scenes
 pause menu & pausing in general
 stop looking on pause menu
@@ -32,5 +36,7 @@ get ideas
 Re do credits and really whole info page
 options
 add music
+
+comments in code and clean it up a bit
 
 --------------------
