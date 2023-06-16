@@ -1,42 +1,17 @@
-Ended at:
-0:00
-https://www.youtube.com/watch?v=Nw7BFHGBjaY&list=PLkx8oFug638oMagBH2qj1fXOkvBr6nhzt&index=17
-(nolonger following this guys tutorial, but ima still keep it here just incsase)
 
-Now
+
+Important
 --------------------
 
+Make demo game
 
-https://www.youtube.com/watch?v=3fzX-BX8hlI
-2:32
-
-
-(multiplayer)
-
-fp turn off gfx 
-
-pauseing and whatnot
-
-F11 change screen size. use a new script that is static to use falue on all scenes
-pause menu & pausing in general
-stop looking on pause menu
-basic gameplay
-add multiplayer part
+Add multiplayer to demo game
 
 --------------------
-Later
+
+Lesser
 --------------------
 
-(singleplayer)
-singleplayer menu
-basic gameplay
-get ideas
-
-(menus)
-Re do credits and really whole info page
-options
-add music
-
-comments in code and clean it up a bit
+Look over main menu and fix it
 
 --------------------
