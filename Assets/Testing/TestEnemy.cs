@@ -86,9 +86,12 @@ public class TestEnemy : MonoBehaviour
             {
                 if (agent.enabled)
                 {
+                    Vector3 tmp = transform.position;
                     agent.updatePosition = true;
                     agent.updateRotation = true;
                     agent.isStopped = false;
+                    agent.SetDestination(tmp);
+                    transform.position = tmp;
                 }
 
                 rb.isKinematic = true;

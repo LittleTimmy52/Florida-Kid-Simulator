@@ -5,6 +5,8 @@ Important
 
 Make demo game
 
+make enemy follow player, jump if nessicairy, and use nav mesh (or ai if I can)
+
 Add multiplayer to demo game
 
 --------------------
