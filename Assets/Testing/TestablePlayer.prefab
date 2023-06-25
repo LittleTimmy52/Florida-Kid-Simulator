@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 8
+  gM: {fileID: 2675602870537529981, guid: d8dcdc179237caa9db34fcf0610d9e33, type: 3}
 --- !u!1 &6491062097286596072
 GameObject:
   m_ObjectHideFlags: 0

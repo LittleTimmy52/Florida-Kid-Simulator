@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menues/MainMenu.unity
     guid: 7e0d02548c175a14b9b69866d034fdca
+  - enabled: 1
+    path: Assets/Scenes/Menues/SingleplayerMenu.unity
+    guid: 5c7e48b57a56798ce8ed91adce54ac92
+  - enabled: 1
+    path: Assets/Scenes/SingleplayerMaps/SingleplayerMap0.unity
+    guid: b18c9215f84f167cc9f171673251efa1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: fdfd827a048007c41939ebbc45550b89, type: 2}

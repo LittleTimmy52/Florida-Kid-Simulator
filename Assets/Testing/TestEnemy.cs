@@ -7,12 +7,9 @@ public class TestEnemy : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Transform playerTransform;
-    private Rigidbody rb;
-    private bool grounded = true;
     private float dist;
 
     public float range = 50f;
-    public float rnageOfJumping = 10f;
     public float speed = 8f;
 
     // Start is called before the first frame update
@@ -20,84 +17,26 @@ public class TestEnemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // See how close/far the player is
         dist = Vector3.Distance(transform.position, playerTransform.position);
 
-        DecideToJump();
-    }
-
-    private void Move(bool NavOrRB)
-    {
-        if (NavOrRB == true)
+        // Move twards the player if in range
+        if (!agent.isStopped && dist <= range)
         {
-            if (!agent.isStopped && dist <= range)
-            {
-                agent.SetDestination(playerTransform.position);
-            }
-        }else
-        {
-            if (dist <= range)
-            {
-                Vector3 movDir = (playerTransform.position - transform.position).normalized;
-
-                rb.velocity = new Vector3(movDir.x * speed, rb.velocity.y, movDir.z * speed);
-            }
+            agent.SetDestination(playerTransform.position);
         }
     }
 
-    private void Jump()
-    {
-        grounded = false;
-        if (agent.enabled)
-        {
-            agent.SetDestination(transform.position);
-            agent.updatePosition = false;
-            agent.updateRotation = false;
-            agent.isStopped = true;
-        }
-        
-        rb.isKinematic = false;
-        rb.useGravity = true;
-        rb.AddRelativeForce(new Vector3(0, 3f, 0), ForceMode.Impulse);
-    }
+    /* In the future add in multiplayer function to movement
+    IE just make the cop go after the closest player */
 
-    private void DecideToJump()
-    {
-        if (playerTransform.position.y > transform.position.y + 2.5 && dist <= rnageOfJumping)
-        {
-            Jump();
-            Move(false);
-        }else
-        {
-            Move(true);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider != null && collision.collider.tag == "Ground")
-        {
-            if (!grounded)
-            {
-                if (agent.enabled)
-                {
-                    Vector3 tmp = transform.position;
-                    agent.updatePosition = true;
-                    agent.updateRotation = true;
-                    agent.isStopped = false;
-                    agent.SetDestination(tmp);
-                    transform.position = tmp;
-                }
-
-                rb.isKinematic = true;
-                rb.useGravity = false;
-                grounded = true;
-            }
-        }
-    }
+    /* I wanted to make the enemy jump, but it was just not working, the enemy would
+    just not jump, when it did on occasion, it just stayed still. Later try maybe to
+    make it jump, possibly re look into MLAgents (If you use MLAgents, have 2 AI, one
+    renning away from enemies and one being the enimies themselves) */
 }

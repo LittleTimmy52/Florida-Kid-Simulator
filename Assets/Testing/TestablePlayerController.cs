@@ -7,6 +7,9 @@ public class TestablePlayerController : MonoBehaviour
 {
     public float speed = 10f;
     public float jumpForce = 8f;
+    public float sensitivity = 5f;
+    public TestGameManager gM;
+    public Camera cam;
 
     private Rigidbody rb;
     private Vector2 movDir = Vector2.zero;
@@ -14,7 +17,6 @@ public class TestablePlayerController : MonoBehaviour
     private InputAction move;
     private InputAction look;
     private InputAction jump;
-
     private bool isGrounded;
 
     private void Awake()
@@ -24,6 +26,7 @@ public class TestablePlayerController : MonoBehaviour
 
     private void OnEnable()
     {
+        // Really all this is needed for is so the Input system doesent yell at me
         move = controler.Player.Move;
         look = controler.Player.Look;
         jump = controler.Player.Jump;
@@ -42,16 +45,21 @@ public class TestablePlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Take input and move
         Vector2 inp = move.ReadValue<Vector2>();
         movDir = new Vector2(inp.x, inp.y);
 
         Bounds();
+
+        Cam();
     }
 
     private void FixedUpdate()
     {
+        // The actual movement
         rb.velocity = new Vector3(movDir.x * speed, rb.velocity.y, movDir.y * speed);
 
+        //Jumping
         if (jump.IsPressed() && isGrounded)
         {
             isGrounded = false;
@@ -59,8 +67,14 @@ public class TestablePlayerController : MonoBehaviour
         }
     }
 
+    private void Cam()
+    {
+        
+    }
+
     private void Bounds()
     {
+        // Keep player within the bounds of the level
         float boundBox = 50f;
 
         Vector3 pos = transform.position;
@@ -86,12 +100,27 @@ public class TestablePlayerController : MonoBehaviour
     {
         if (collision.collider != null && collision.collider.tag == "Ground")
         {
+            // Landing
             isGrounded = true;
+        }else if (collision.collider != null && collision.collider.tag == "Flag")
+        {
+            // Got flag, update count
+            collision.gameObject.GetComponent<TestFlag>().ReLocate();
+
+            gM.fCount++;
+
+            // This logic needs to be here, dont worry
+            if (gM.difficulty == 1)
+            {
+                gM.SpawnCops();
+            }
+            gM.SpawnCops();
         }
     }
 
     private void OnDisable()
     {
+        // Again so the input system does not yell at me
         move.Disable();
         look.Disable();
         jump.Disable();

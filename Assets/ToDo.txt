@@ -3,17 +3,39 @@
 Important
 --------------------
 
-Make demo game
+work on options menu (both of them)
 
-make enemy follow player, jump if nessicairy, and use nav mesh (or ai if I can)
+edit dev menu
 
-Add multiplayer to demo game
+edit and implement stuff from 1.2
+also work on the main game itself
 
 --------------------
 
 Lesser
 --------------------
 
+PYTHON BOT PLAY 1.2
+
+multiplayer
+
 Look over main menu and fix it
 
 --------------------
+
+Skins and maps
+--------------------
+
+kid from og meme
+kid from the other meme with the yellow shirt
+christopher
+kaedin
+romone
+jayden
+littletimmy52 3dm
+littletimmy52 jpeg me only
+
+planes?
+beach
+city
+swamp?
