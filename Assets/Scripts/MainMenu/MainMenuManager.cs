@@ -22,7 +22,9 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         // open correct menu
-        mainMenu.SetActive(true); optionsMenu.SetActive(false);  infoMenu.SetActive(false);
+        mainMenu.SetActive(true);
+        optionsMenu.SetActive(false); 
+        infoMenu.SetActive(false);
 
         // open in fullscreen
         Screen.fullScreen = true;
@@ -32,22 +34,24 @@ public class MainMenuManager : MonoBehaviour
 
     public void Multiplayer()
     {
-        SceneManager.LoadScene("Multiplayer");
+        // load scene here
     }
 
     public void Singleplayer()
     {
-        // load scene here
+        SceneManager.LoadScene("SingleplayerMenu");
     }
 
     public void Options()
     {
-        optionsMenu.SetActive(true); mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+        mainMenu.SetActive(false);
     }
 
     public void Info()
     {
-        infoMenu.SetActive(true); mainMenu.SetActive(false);
+        infoMenu.SetActive(true);
+        mainMenu.SetActive(false);
     }
 
     public void Quit()
@@ -57,7 +61,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void Back()
     {
-        mainMenu.SetActive(true); optionsMenu.SetActive(false); infoMenu.SetActive(false);
+        mainMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+        infoMenu.SetActive(false);
     }
 
     public void Discord()

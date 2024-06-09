@@ -1,0 +1,33 @@
+what to do
+
+fix menues
+
+
+make the downloader
+update sites & announce release
+release update
+
+
+
+
+
+
+
+
+
+add SGA to the game the toggle currently set to m, so fix that too
+
+
+
+for when you want to do the SGA thing this is an example of how to set the text to word
+but the main part that does the converting is here
+https://stackoverflow.com/questions/2729752/converting-numbers-in-to-words-c-sharp/2730393#2730393
+
+if (fM.isFontSGA == true)
+        {
+            var scoreWord = ScoreNumberToWords(score);
+            scoreText.text = "score " + scoreWord;
+        }else
+        {
+            scoreText.text = "Score: " + score;
+        }

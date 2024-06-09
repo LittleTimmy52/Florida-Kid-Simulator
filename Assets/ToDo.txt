@@ -1,42 +1,41 @@
-Ended at:
-0:00
-https://www.youtube.com/watch?v=Nw7BFHGBjaY&list=PLkx8oFug638oMagBH2qj1fXOkvBr6nhzt&index=17
-(nolonger following this guys tutorial, but ima still keep it here just incsase)
 
-Now
+
+Important
 --------------------
 
+work on options menu (both of them)
 
-https://www.youtube.com/watch?v=3fzX-BX8hlI
-2:32
+edit dev menu
 
-
-(multiplayer)
-
-fp turn off gfx 
-
-pauseing and whatnot
-
-F11 change screen size. use a new script that is static to use falue on all scenes
-pause menu & pausing in general
-stop looking on pause menu
-basic gameplay
-add multiplayer part
+edit and implement stuff from 1.2
+also work on the main game itself
 
 --------------------
-Later
+
+Lesser
 --------------------
 
-(singleplayer)
-singleplayer menu
-basic gameplay
-get ideas
+PYTHON BOT PLAY 1.2
 
-(menus)
-Re do credits and really whole info page
-options
-add music
+multiplayer
 
-comments in code and clean it up a bit
+Look over main menu and fix it
 
 --------------------
+
+Skins and maps
+--------------------
+
+kid from og meme
+kid from the other meme with the yellow shirt
+christopher
+kaedin
+romone
+jayden
+littletimmy52 3dm
+littletimmy52 jpeg me only
+
+planes?
+beach
+city
+swamp?
